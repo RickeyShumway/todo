@@ -1,0 +1,60 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  height: 100%;
+  min-width: 90%;
+  background-color: #f2f3ff;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  height: 10%;
+  min-height: 100px;
+  border: 2px solid black;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.left {
+  width: 25%;
+  height: 100%;
+  border: 2px solid black;
+}
+.left .listlist {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.left .listlist .list-item {
+  width: 100%;
+  height: 7%;
+  border: 2px solid black;
+}
+
+.right {
+  width: 75%;
+  height: 100%;
+  border: 2px solid black;
+}
+.right .to-do-space {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: green;
+}
+
+/*# sourceMappingURL=style.css.map */
