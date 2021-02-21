@@ -5,6 +5,7 @@ html, body {
   margin: 0;
   display: flex;
   justify-content: center;
+  font-family: "Lato", sans-serif;
 }
 
 .container {
@@ -19,6 +20,12 @@ html, body {
   height: 10%;
   min-height: 100px;
   border: 2px solid black;
+  align-items: center;
+  font-size: 2.3em;
+  padding-left: 50px;
+}
+.topBar .nav {
+  font-size: smaller;
 }
 
 .content {
@@ -42,6 +49,20 @@ html, body {
   width: 100%;
   height: 7%;
   border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.9em;
+}
+.left .listlist .list-item .edit-icon {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.left .listlist .list-item .edit-icon .fa {
+  font-size: 0.5em;
 }
 
 .right {
@@ -49,12 +70,26 @@ html, body {
   height: 100%;
   border: 2px solid black;
 }
+.right .list-title {
+  padding: 25px;
+  display: flex;
+  align-items: center;
+  font-size: 1.9em;
+  color: grey;
+}
 .right .to-do-space {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-color: green;
+}
+
+.add {
+  padding: 25px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.9em;
 }
 
 /*# sourceMappingURL=style.css.map */

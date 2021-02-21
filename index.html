@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/css/style.css">
-    <script defer link="script.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
     <title>To Do App</title>
 </head>
 <body>
@@ -20,17 +22,24 @@
         </div>
         <div class="content">
             <div class="left">
-                <div class="add">ADD LIST<i class="fa fa-plus"></i></div>
-                <div class="listlist">
+                <div class="add" id="add-button">
+                    ADD LIST
+                    <i class="fa fa-plus"></i>
+                </div>
+                <div class="listlist" id="listlist">
                     <div class="list-item">
-                        
+                        <div>Title</div>
+                        <div class="edit-icon">
+                            <i class="fa fa-edit"></i>
+                            <i class="fa fa-close"></i>
+                           
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="right">
                 <div class="list-title">
                     No List Selected
-                    <div class="add">ADD ITEM<i class="fa fa-plus"></i></div>
                 </div>
                 <div class="to-do-space">
 
