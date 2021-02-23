@@ -16,16 +16,32 @@ html, body {
 
 .topBar {
   display: flex;
-  justify-content: space-between;
   height: 10%;
   min-height: 100px;
+  width: 100%;
+  box-sizing: border-box;
   border: 2px solid black;
-  align-items: center;
   font-size: 2.3em;
-  padding-left: 50px;
+  padding: 0 50px;
+}
+.topBar .logo {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 .topBar .nav {
+  width: 50%;
+  height: 100%;
   font-size: smaller;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.7em;
+  padding-top: 10px;
+}
+.topBar .nav a {
+  padding-left: 20px;
+  color: black;
 }
 
 .content {
@@ -39,6 +55,10 @@ html, body {
   height: 100%;
   border: 2px solid black;
 }
+.left .add {
+  display: flex;
+  justify-content: space-around;
+}
 .left .listlist {
   display: flex;
   flex-direction: column;
@@ -47,12 +67,16 @@ html, body {
 }
 .left .listlist .list-item {
   width: 100%;
-  height: 7%;
+  padding: 7%;
   border: 2px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.9em;
+  box-sizing: border-box;
+}
+.left .listlist .list-item .title-item {
+  padding: 0 25px;
 }
 .left .listlist .list-item .edit-icon {
   width: 25%;
@@ -63,6 +87,7 @@ html, body {
 }
 .left .listlist .list-item .edit-icon .fa {
   font-size: 0.5em;
+  padding: 7px 10px;
 }
 
 .right {
@@ -82,6 +107,35 @@ html, body {
   flex-direction: column;
   height: 100%;
   width: 100%;
+  padding: 0 10%;
+  box-sizing: border-box;
+}
+.right .to-do-space .to-do-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  font-size: 1.7em;
+  padding: 1% 0;
+}
+.right .to-do-space .to-do-item input {
+  width: 6%;
+}
+.right .to-do-space .to-do-item div {
+  width: 90%;
+}
+.right .to-do-space .to-do-item i {
+  width: 4%;
+  font-size: 0.6em;
+  align-self: center;
+}
+.right .to-do-space .add-to-do-item {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-size: 1.4em;
+}
+.right .to-do-space .add-to-do-item i {
+  padding: 20px;
 }
 
 .add {
@@ -90,6 +144,29 @@ html, body {
   justify-content: flex-end;
   align-items: center;
   font-size: 1.9em;
+}
+
+form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  display: none;
+  padding: 25px 0 25px 40px;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+form #text-input {
+  height: 100%;
+  width: 85%;
+  border: none;
+  font-size: 1.7em;
+  box-sizing: border-box;
+}
+form #text-button {
+  border: none;
+  background-color: white;
+  width: 10%;
+  background-color: #b7b7ff;
 }
 
 /*# sourceMappingURL=style.css.map */
