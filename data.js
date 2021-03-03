@@ -1,4 +1,13 @@
 //Constructor for new Task
+function findIndex (obj, id, list) {
+    let index = obj.map(function (list) {
+        return list.id;}).index(id)
+}
+function createList (tagId) {
+    let id = Date.now();
+    let textVal = document.getElementById(tagId).value;
+    let newList = new List (id, textVal);
+}
 class Task {
     
     constructor(id, item) {
@@ -19,7 +28,7 @@ class Task {
 //Constructor for new List
 class List {
     
-    constructor(title) {
+    constructor(id, title) {
         this.title = title;
         this.id = Date.now();
         this.selected = false;
