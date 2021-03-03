@@ -7,3 +7,17 @@
     display: flex;
     box-sizing: border-box;
 }
+@mixin fillflex {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+$icon-size: 1em;
+@mixin icon {
+    
+}
