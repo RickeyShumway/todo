@@ -6,12 +6,15 @@ html, body {
   display: flex;
   justify-content: center;
   font-family: "Lato", sans-serif;
+  font-size: 2.3vmin;
+  box-sizing: border-box;
 }
 
 .container {
   height: 100%;
   min-width: 90%;
   background-color: #f2f3ff;
+  box-sizing: border-box;
 }
 
 .topBar {
@@ -22,7 +25,7 @@ html, body {
   box-sizing: border-box;
   border: 2px solid black;
   font-size: 2.3em;
-  padding: 0 50px;
+  padding: 0 5%;
 }
 .topBar .logo {
   width: 50%;
@@ -37,10 +40,10 @@ html, body {
   display: flex;
   justify-content: flex-end;
   font-size: 0.7em;
-  padding-top: 10px;
+  padding-top: 2%;
 }
 .topBar .nav a {
-  padding-left: 20px;
+  padding-left: 3%;
   color: black;
 }
 
@@ -48,6 +51,7 @@ html, body {
   height: 100%;
   width: 100%;
   display: flex;
+  box-sizing: border-box;
 }
 
 .left {
@@ -68,6 +72,7 @@ html, body {
 .left .listlist .list-item {
   width: 100%;
   padding: 7%;
+  min-height: 12%;
   border: 2px solid black;
   display: flex;
   justify-content: space-between;
@@ -76,7 +81,9 @@ html, body {
   box-sizing: border-box;
 }
 .left .listlist .list-item .title-item {
-  padding: 0 25px;
+  padding: 0 5%;
+  max-width: 80%;
+  overflow-wrap: break-word;
 }
 .left .listlist .list-item .edit-icon {
   width: 25%;
@@ -84,10 +91,11 @@ html, body {
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
+  padding: 10% 0 10% 0;
 }
 .left .listlist .list-item .edit-icon .fa {
   font-size: 0.5em;
-  padding: 7px 10px;
+  padding: 2% 1% 10% 10%;
 }
 
 .right {
@@ -96,7 +104,7 @@ html, body {
   border: 2px solid black;
 }
 .right .list-title {
-  padding: 25px;
+  padding: 4%;
   display: flex;
   align-items: center;
   font-size: 1.9em;
@@ -127,6 +135,7 @@ html, body {
   width: 4%;
   font-size: 0.6em;
   align-self: center;
+  padding: 1%;
 }
 .right .to-do-space .add-to-do-item {
   box-sizing: border-box;
@@ -135,11 +144,11 @@ html, body {
   font-size: 1.4em;
 }
 .right .to-do-space .add-to-do-item i {
-  padding: 20px;
+  padding: 5%;
 }
 
 .add {
-  padding: 25px;
+  padding: 8%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -150,36 +159,51 @@ form {
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 25px 0 25px 40px;
+  flex-direction: column;
   box-sizing: border-box;
   justify-content: space-between;
 }
 form #text-input {
   height: 100%;
-  width: 85%;
+  width: 100%;
   border: none;
   font-size: 1.7em;
   box-sizing: border-box;
 }
 form #text-button {
   border: none;
-  background-color: white;
-  width: 10%;
+  min-width: 10%;
   background-color: #b7b7ff;
+  align-self: flex-end;
+  padding: 1.5%;
 }
 
 #list-add-button {
   border: none;
   background-color: white;
-  padding: 4%;
   background-color: #b7b7ff;
+  box-sizing: border-box;
+  padding: 4.5%;
+  align-self: flex-end;
 }
 
 #list-text-area {
-  width: 85%;
+  width: 100%;
   border: none;
-  font-size: 0.9em;
+  font-size: 1.8em;
   box-sizing: border-box;
+}
+
+.list-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#reveal-button {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -21,11 +21,13 @@ class List {
     
     constructor(id, title) {
         this.title = title;
-        this.id = Date.now();
+        this.id = id;
         this.selected = true;
         this.task = [];
+        this.element = document.createElement('div');
+        this.htmlId = element.setAttribute('id', this[id]);  
     }
-
+    
     addTask(string) {
         let taskId = Date.now();
         let newTask = new Task (taskId, string);

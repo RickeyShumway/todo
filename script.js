@@ -1,25 +1,28 @@
-import {findIndex, createList, render} from "/functions.js";
+//Import from Function Declarations
+import {findIndex, createList, render, revealButton, test, getText} from "/functions.js";
+//Import from Class Declarations
 import {Task, List} from "/classes.js";
+
+//Variables
+//Main List of Data
 const list = [];
-function test(x) {
-    console.log(x);
-}
-
-function getText() {
-    let textEntry = document.getElementById('list-text-area').value;
-    console.log(textEntry);
-}
-
+//Elements by ID
 let listAddButton = document.getElementById('add-button');
-//listAddButton.addEventListener('click', test);
-
 let listTextArea = document.getElementById('list-text-area');
 let listCreateButton = document.getElementById('list-add-button');
-//listTextArea.addEventListener('click', test, 'does this work');
 
+
+//Event Listeners
+//Reveals text entry and button to create new list
+listAddButton.addEventListener('click', function() {
+    revealButton('reveal-button');
+})
+//Takes text and creates new list
 listCreateButton.addEventListener('click', function() {
     createList('list-text-area', list);
     console.log(list)
     render();
 });
-export {list};
+
+
+export {list, listAddButton};
