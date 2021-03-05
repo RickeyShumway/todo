@@ -24,9 +24,10 @@ class List {
         this.id = id;
         this.selected = true;
         this.task = [];
-        this.element = document.createElement('div');
-        this.htmlId = element.setAttribute('id', this[id]);  
+        // this.element = document.createElement('div');
+        // this.htmlId = element.setAttribute('id', this[id]);  
     }
+
     
     addTask(string) {
         let taskId = Date.now();
