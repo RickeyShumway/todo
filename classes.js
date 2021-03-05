@@ -28,11 +28,14 @@ class List {
         // this.htmlId = element.setAttribute('id', this[id]);  
     }
 
+    updateSelected(bool) {
+        this.selected = bool;
+    }
     
     addTask(string) {
         let taskId = Date.now();
         let newTask = new Task (taskId, string);
-        this.tasks.push(newTask);  
+        this.task.push(newTask);  
     }
     
     deleteTask (id) {
