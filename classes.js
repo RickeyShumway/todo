@@ -5,6 +5,7 @@ class Task {
         this.id = id;
         this.item = item;
         this.complete = false;
+        this.editing = false;
     }
 
     editTask (string) {
@@ -24,8 +25,7 @@ class List {
         this.id = id;
         this.selected = true;
         this.task = [];
-        // this.element = document.createElement('div');
-        // this.htmlId = element.setAttribute('id', this[id]);  
+        this.editing = false;
     }
 
     updateSelected(bool) {

@@ -178,7 +178,7 @@ form #text-button {
   padding: 1.5%;
 }
 
-#list-add-button {
+#list-add-button, #list-edit-button {
   border: none;
   background-color: white;
   background-color: #b7b7ff;
@@ -208,6 +208,11 @@ form #text-button {
 
 #reveal-button-2 {
   display: none;
+}
+
+.edit-list {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /*# sourceMappingURL=style.css.map */
