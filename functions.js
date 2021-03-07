@@ -90,21 +90,28 @@ function render () {
         }
     })
     //console.log("This is my current selection",currentSelection)
-    if(currentSelection.task) {
+    
         currentSelection.task.forEach((element) => {
-            console.log("Im a task" + element.item);
-            let openTag=`<div class="to-do-item" id='${element.id}'>`;
-            let input =`<input class="check" id="check_${element.id}" type="checkbox">`;
-            let task =`<div>${element.item}</div>`;
-            let otherTags =`<i class="fa fa-edit" id="edit_${element.id}"></i>\
-                        <i class="fa fa-close" id="delete_${element.id}"></i>
-                        </div>`;
-            htmlTask += openTag + input + task + otherTags;
-            console.log(element.id)
+            //console.log("Im a task" + element.item);
+            if(element.editing) {
+                console.log("editing is true")
+                let openTag1 = `<div class="task-edit list-item">`
+                let input1 = `<input id='edit-task_${element.id}' value="${element.item}"type='textarea'>\
+                <input type="button" class="submit-button-edit" id='button_${element.id}' value="DONE"></div>`
+                htmlTask += openTag1 + input1;
+           } else {
+               //console.log('editing is false')
+                let openTag=`<div class="to-do-item" id='${element.id}'>`;
+                let input =`<input class="check" id="check_${element.id}" type="checkbox">`;
+                let task =`<div>${element.item}</div>`;
+                let otherTags =`<i class="fa fa-edit" id="edit_${element.id}"></i>\
+                            <i class="fa fa-close" id="delete_${element.id}"></i>
+                            </div>`;
+                htmlTask += openTag + input + task + otherTags;
+                console.log(element.id)
+            }
         })
-    } else {
-        console.log('wtf');
-    }
+
     // currentSelection.item.forEach(() => {
     //     let openTag=`<div class="to-do-item" id='${currentSelection.item.id}'>`;
     //     let input =`<input type="checkbox">`;

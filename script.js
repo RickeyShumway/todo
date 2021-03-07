@@ -99,7 +99,7 @@ leftList.addEventListener('click', function (e) {
 //right side event listener
 rightList.addEventListener('click', function(e) {
     let currentSelection;
-    console.log("Big picture works");
+    //console.log("Big picture works");
     let markComplete = function(id, obj) {
         console.log("this mark complete"+ id);
         console.log(obj.task.length);
@@ -112,17 +112,28 @@ rightList.addEventListener('click', function(e) {
                 obj.task[i].complete = false;
                 console.log(obj.task[i].complete)
             }
+        }
+    }
+    let editTask = function(id, obj) {
+        //console.log('this will edit the task');
+        for (let i = 0; i < obj.task.length; i++) {
+            console.log(obj.task[i].id)
+            if(obj.task[i].id == id) {
+                obj.task[i].editing = true;
+            } else {
+                obj.task[i].editing = false;
+            }
+
         }render();
     }
-    let editTask = function(id, arr) {
-        console.log('this will edit the task');
+    let submitEdit = function (id, obj) {
+        let edit = document.getElementById("edit-task_"+ id).value;
         for (let i = 0; i < obj.task.length; i++) {
+             obj.task[i].editing = false;
             if (obj.task[i].id == id) {
-                obj.task[i].editing = true;
-                } else {
-                obj.task[i].complete = false;
+                obj.task[i].item = edit;
             }
-        }render();
+        }    render();
     }
     let deleteTask = function(id, obj) {
         console.log("This will delete the task");
@@ -143,6 +154,8 @@ rightList.addEventListener('click', function(e) {
         editTask(splitShift(e.target.id), getSelected(list));
     } else if (e.target.className == "fa fa-close") {
         deleteTask(splitShift(e.target.id), getSelected(list));
+    } else if (e.target.className == "submit-button-edit") {
+        submitEdit(splitShift(e.target.id), getSelected(list));
     }
 })
 //Takes text and creates new list
