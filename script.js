@@ -41,11 +41,12 @@ leftList.addEventListener('click', function (e) {
         for (let i=0; i<arr.length; i++) {
             if (arr[i].id == id) {
                 arr[i].updateSelected(true);
-                console.log(arr[i]);
+                console.log(arr[i].selected);
             } else {
                 arr[i].updateSelected(false);
             }
-        }render();
+        }  render();
+        console.log(list)
     }
     let editList = function(id, arr) {
         console.log("gonna edit" + id);
@@ -60,7 +61,7 @@ leftList.addEventListener('click', function (e) {
                 arr[i].editing = false;
                 console.log(arr[i].editing)
             }
-        }render();
+        } render();
     }
     let submitEdit = function(id, arr) {
         let splitId = id.split("_");
@@ -73,7 +74,7 @@ leftList.addEventListener('click', function (e) {
                 arr[i].title = edit;
             }
         
-        }render();
+        } render();
     }
     let deleteList = function(id, arr) {
         console.log("gonna delete" + id);
@@ -83,7 +84,13 @@ leftList.addEventListener('click', function (e) {
             if (arr[i].id == splitId) {
                 arr.splice(i, 1);
             }
-        }render();
+        }console.log(list); 
+        render();
+    }
+    let splitShift = function (id) {
+        let splitId = id.split("_");
+        splitId.shift();
+        return splitId;
     }
     if (e.target.className == 'list-item') {
         selectList(e.target.id, list);
@@ -93,8 +100,9 @@ leftList.addEventListener('click', function (e) {
         deleteList(e.target.id, list);
     } else if (e.target.className == 'edit-button') {
         submitEdit(e.target.id, list);
+    } else if (e.target.className == 'title-item') {
+        selectList(splitShift(e.target.id), list);
     }
-    
 })
 //right side event listener
 rightList.addEventListener('click', function(e) {
@@ -112,7 +120,7 @@ rightList.addEventListener('click', function(e) {
                 obj.task[i].complete = false;
                 console.log(obj.task[i].complete)
             }
-        }
+        }render();
     }
     let editTask = function(id, obj) {
         //console.log('this will edit the task');
@@ -133,7 +141,7 @@ rightList.addEventListener('click', function(e) {
             if (obj.task[i].id == id) {
                 obj.task[i].item = edit;
             }
-        }    render();
+        }render();
     }
     let deleteTask = function(id, obj) {
         console.log("This will delete the task");
