@@ -12,9 +12,11 @@ function findIndex (obj, id, list) {
 function selectList (id, arr) {
     for (let i=0; i<arr.length; i++) {
         if (arr[i].id == id) {
-            arr[i].selected(true);
-        } else {
+            arr[i].updateSelected(true);
+        } else if (arr[i].id != id) {
             arr[i].updateSelected(false);
+        } else if (arr == []) {
+            return false;
         }
     }
 }
@@ -29,11 +31,10 @@ function getSelected (arr) {
         if (arr[i].selected == true) {
             //console.log('func', arr[i]);
             return arr[i];
-            
-        } 
-        
+        }
     }
 }
+
 function createList (tagId, arr) {
     let id = Date.now();
     let textVal = document.getElementById(tagId).value;
@@ -49,7 +50,7 @@ function createList (tagId, arr) {
 // function selectList(arr) {
 //     arr.forEach((item) => {
 //         item.selected = false;
-//     }) 
+//     })
 // }
 function getText() {
     let textEntry = document.getElementById('list-text-area').value;
@@ -59,14 +60,6 @@ function revealButton (element) {
     document.getElementById(element).style.display="flex";
 }
 function render () {
-    if (list == []) {
-        document.getElementById('listAppendTo').innerHTML = '';
-        document.getElementById('space-to-do').innerHTML = '';
-        document.getElementById('empty-title').innerHTML = `<div class="list-title" id="empty-title">\
-        No List Selected\
-    </div>`;
-        console.log("nothing here")
-    } else {
     let currentSelection = getSelected(list);
     //Create Left List
     let appendTo = document.getElementById('listAppendTo');
@@ -92,17 +85,26 @@ function render () {
             htmlList+=openTag + title + edit + closeTag;
         }
     })
+   
     //console.log("This is my current selection",currentSelection)
-    
+    if (currentSelection) {
         currentSelection.task.forEach((element) => {
             //console.log("Im a task" + element.item);
-            console.log(list.task)
+            // console.log(list.task)
             if(element.editing || list.length < 0) {
                 console.log("editing is true")
                 let openTag1 = `<div class="task-edit list-item">`
                 let input1 = `<input id='edit-task_${element.id}' value="${element.item}"type='textarea'>\
                 <input type="button" class="submit-button-edit" id='button_${element.id}' value="DONE"></div>`
                 htmlTask += openTag1 + input1;
+           } else if (element.complete == true) {
+                let openTag4=`<div class="to-do-item" id='${element.id}'>`;
+                let input4 =`<input class="check" id="check_${element.id}" type="checkbox"checked>`;
+                let task4 =`<div class="checked-task">${element.item}</div>`;
+                let otherTags4 =`<i class="fa fa-edit" id="edit_${element.id}"></i>\
+                            <i class="fa fa-close" id="delete_${element.id}"></i>
+                            </div>`;
+                htmlTask += openTag4 + input4 + task4 + otherTags4;
            } else {
                //console.log('editing is false')
                 let openTag2=`<div class="to-do-item" id='${element.id}'>`;
@@ -113,10 +115,12 @@ function render () {
                             </div>`;
                 htmlTask += openTag2 + input2 + task2 + otherTags2;
                 console.log(element.id)
+                
             }
         })
-    console.log(list.length)
-
+    } else {
+        document.getElementById('empty-title').innerHTML = 'No List Selected';
+    }
     // currentSelection.item.forEach(() => {
     //     let openTag=`<div class="to-do-item" id='${currentSelection.item.id}'>`;
     //     let input =`<input type="checkbox">`;
@@ -133,13 +137,16 @@ function render () {
     document.getElementById('listAppendTo').innerHTML = htmlList;
     document.getElementById('space-to-do').innerHTML = htmlTask;
     document.getElementById('empty-title').innerHTML = currentSelection.title;
+    document.getElementById(currentSelection.id).style.borderRight = 'none';
+    document.getElementById(currentSelection.id).style.backgroundColor = 'white';
+    document.getElementById(currentSelection.id).style.color = 'black';
     
     //Reseting: Text area gone and words removed.
     document.getElementById('reveal-button').style.display="none";
     document.getElementById('list-text-area').value = '';
     document.getElementById('reveal-button-2').style.display="none";
     document.getElementById('text-input').value = '';
+    window.localStorage.setItem('list', JSON.stringify(list));
 
-    }
 }
 export {findIndex, createList, render, revealButton, test, getText, getSelected}

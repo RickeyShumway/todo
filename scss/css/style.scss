@@ -57,10 +57,11 @@ html, body {
 .left {
     width: 25%;
     height: 100%;
-    border: 2px solid black;
+    border-left: 2px solid black;
     .add {
         display: flex;
         justify-content: space-around;
+        border-right: 2px solid rgb(246, 246, 255);
     }
     .listlist {
         display: flex;
@@ -70,12 +71,15 @@ html, body {
             width: 100%;
             padding: 7%;
             min-height: 12%;
-            border: 2px solid black;
+            border-right: 2px solid rgb(246, 246, 255);
+            border-top: 1px solid rgb(154, 154, 154);
+            color:rgb(154, 154, 154);
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 1.9em;
             box-sizing: border-box;
+            background-color: rgb(246, 246, 255);
             .title-item {
                 padding: 0 5%;
                 max-width: 80%;
@@ -101,7 +105,8 @@ html, body {
 .right {
     width: 75%;
     height: 100%;
-    border: 2px solid black;
+    border-right: 2px solid black;
+    background-color: white;
     .list-title {
         padding: 4%;
         display: flex;
@@ -166,6 +171,7 @@ form {
         border: none;
         font-size:1.7em;
         box-sizing: border-box;
+        border: 2px solid black;
         
     }
     #text-button {
@@ -174,6 +180,7 @@ form {
         background-color: rgb(183, 183, 255);
         align-self: flex-end;
         padding: 1.5%;
+        font-size: 1.2em;
     }
 }
 #list-add-button, #list-edit-button {
@@ -183,12 +190,15 @@ form {
     box-sizing: border-box;
     padding: 4.5%;
     align-self: flex-end;
+    font-size: 1.2em;
 }
 #list-text-area  {
         width: 100%;      
         border: none;
         font-size:1.8em;
         box-sizing: border-box;
+        border-right: 2px solid black;
+        border-bottom: 2px solid black;
 }
 .list-input {
     width: 100%;
@@ -208,4 +218,24 @@ form {
 .edit-list {
     width: 100%;
     box-sizing: border-box;
+}
+.checked-task {
+    text-decoration: line-through;
+    color: gray;
+}
+.clear-complete {
+    display: flex;
+    margin: 20% 10% 10% 50%;
+    width: 10vw;
+    box-sizing: border-box;
+    
+}
+#clear-complete-button {
+    border: none;
+    background-color: white;
+    background-color: rgb(183, 183, 255);
+    box-sizing: border-box;
+    padding:6.1%;
+    font-size: 1.2em;
+   
 }

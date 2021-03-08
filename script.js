@@ -115,10 +115,10 @@ rightList.addEventListener('click', function(e) {
             if (obj.task[i].id == id)
                 if (obj.task[i].complete == false) {
                 obj.task[i].complete = true;
-                console.log(obj.task[i].complete)
+                console.log("this is complete");
                 } else {
                 obj.task[i].complete = false;
-                console.log(obj.task[i].complete)
+                
             }
         }render();
     }
@@ -176,6 +176,39 @@ taskCreateButton.addEventListener('click', function() {
     let selected = getSelected(list);
     selected.addTask(document.getElementById('text-input').value);
     render();
+})
+document.getElementById('clear-complete-button').addEventListener('click', function () {
+    let current = getSelected(list);
+    for (let x = 0; x < current.task.length; x++) {
+        console.log(current.task[x].complete);
+        
+    }
+    
+    for (let i = current.task.length-1; i >= 0; i--) {
+        if (current.task[i].complete == true) {
+            current.task.splice(i, 1);
+        }
+    } render();
+    // current.task.forEach(function (item, index) {
+    //         if (item.complete == true) {
+    //             console.log(item, index);
+    //             index--;
+    //             current.task.splice(index, 1);
+    //             index++;
+    //         }
+    //     render();
+    // });
+    // console.log("this will clear it");
+    // console.log(getSelected(list).task[0].complete)g
+    // let current = getSelected(list);
+    // let count = 0;
+    // // current.task.reduce(())
+    // for (let i = current; i >= 0; i--) {
+    //     console.log(getSelected(list).task[i].complete)
+    //     if (getSelected(list).task[i].complete == true) {
+    //         list.task.splice(i, 1);
+    //     }
+    // } render();
 })
 
 
